@@ -3,3 +3,50 @@
 ################################################################################
 
 /WebApiDIMAG/.vs/WebApiDIMAG
+ # Ignorar los archivos binarios y temporales de Visual Studio
+*.log
+*.vs/
+*.vscode/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Carpetas de salida de compilación
+bin/
+obj/
+
+# Configuración del sistema
+*.DS_Store
+*.tmp
+*.swp
+*.swo
+
+# Carpetas de paquetes NuGet
+packages/
+*.nupkg
+*.snupkg
+*.nuget/
+
+# Archivos de base de datos locales
+*.mdf
+*.ldf
+
+# Archivos de configuración del entorno
+.env
+
+# Archivos generados por dotnet
+*.dbmdl
+*.bak
+
+# Ignorar carpetas de migraciones específicas de EF Core
+AccesoDatosDimag/bin/
+AccesoDatosDimag/Migrations/
+
+# Archivos temporales de ASP.NET
+appsettings.Development.json
+appsettings.json
+
+# Carpetas de salida de compilación en otros proyectos
+/WebApiDIMAG/bin/
+

@@ -1,6 +1,17 @@
+using AccesoDatosDimag.Context;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+// Crear variable para la cadena de conexión
+var connectionString = builder.Configuration.GetConnectionString("ConnectionStringsDB_Dimag");
+//Registrar un servicio para la conexión
+builder.Services.AddDbContext<DimagDBContext>(
+    options => options.UseSqlServer(connectionString)
+);
+
+DimagDBContext.ConnectionString = connectionString;
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
