@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35122.118
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiDIMAG", "WebApiDIMAG.csproj", "{1D3012D5-C450-4ADB-8B58-AE46094B7F9A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01. WebApiDimag", "01. WebApiDimag", "{C4E0D897-C72E-4A90-9D93-CA71A9D6FCB6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1D3012D5-C450-4ADB-8B58-AE46094B7F9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D3012D5-C450-4ADB-8B58-AE46094B7F9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D3012D5-C450-4ADB-8B58-AE46094B7F9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D3012D5-C450-4ADB-8B58-AE46094B7F9A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1D3012D5-C450-4ADB-8B58-AE46094B7F9A} = {C4E0D897-C72E-4A90-9D93-CA71A9D6FCB6}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {693F58A2-454E-46E2-A360-D941B85DBE23}
+	EndGlobalSection
+EndGlobal
