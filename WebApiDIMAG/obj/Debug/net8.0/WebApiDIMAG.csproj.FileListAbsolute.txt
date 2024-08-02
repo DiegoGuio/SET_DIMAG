@@ -139,3 +139,4 @@ C:\Users\sindy\OneDrive\Escritorio\SET_DIMAG\WebApiDIMAG\bin\Debug\net8.0\Acceso
 C:\Users\sindy\OneDrive\Escritorio\SET_DIMAG\WebApiDIMAG\bin\Debug\net8.0\LogicaNegocioDimag.dll
 C:\Users\sindy\OneDrive\Escritorio\SET_DIMAG\WebApiDIMAG\bin\Debug\net8.0\LogicaNegocioDimag.pdb
 C:\Users\sindy\OneDrive\Escritorio\SET_DIMAG\WebApiDIMAG\bin\Debug\net8.0\AccesoDatosDimag.pdb
+C:\Users\sindy\OneDrive\Escritorio\SET_DIMAG\WebApiDIMAG\bin\Debug\net8.0\AutoMapper.dll

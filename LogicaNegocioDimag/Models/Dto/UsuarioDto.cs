@@ -6,60 +6,36 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AccesoDatosDimag.Models
+namespace LogicaNegocioDimag.Models.Dto
 {
-    public class Usuario
+    public class UsuarioDto
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-
-        [Required]
-        [StringLength(15)]
+                
         public string PrimerNombre { get; set; }
-
-        [StringLength(15)]
+                
         public string SegundoNombre { get; set; }
-
-        [Required]
-        [StringLength(15)]
+                
         public string PrimerApellido { get; set; }
                 
-        [StringLength(15)]
         public string SegundoApellido { get; set; }
-
-        [Required]
-        [ForeignKey("TipoDocumento")]
+                
         public int TipoDocumentoId { get; set; }
-
-        [Required]
-        [StringLength(15)]
+               
         public string NumeroDocumento { get; set; }
-
-        [Required]
-        [ForeignKey("Pais")]
+                
         public int PaisId { get; set; }
-
-        [Required]
-        [ForeignKey("Departamento")]
+                
         public int DepartamentoId { get; set; }
-
-        [Required]
-        [StringLength(100)]
+                
         public string Email { get; set; }
-
-        [Required]
-        [StringLength(15)]
+               
         public string Celular { get; set; }
-
-        [Required]
-        [StringLength(50)]
+                
         public string NombreUsuario { get; set; }
-
-        [Required]
-        [StringLength(15)]
+                
         public string Password { get; set; }
-        public Usuario() 
+        public UsuarioDto()
         {
             PrimerNombre = string.Empty;
             SegundoNombre = string.Empty;

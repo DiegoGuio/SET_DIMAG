@@ -1,4 +1,6 @@
 using AccesoDatosDimag.Context;
+using AccesoDatosDimag.Queries;
+using LogicaNegocioDimag.BL;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -17,6 +19,12 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+//LogicaNegocioDimag/BL
+builder.Services.AddScoped<UsuariosBL>();
+
+//AccesoDatosDimag/Queries
+builder.Services.AddScoped<UsuariosQueries>();
 
 var app = builder.Build();
 
