@@ -18,5 +18,28 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    background-color: whitesmoke;
+}
+
+.bg-blue {
+    background-color: blue;
+}
+
+#footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 20px;
+    font-size: small;
+}
+
+.enlace{
+    color:blue;
+    text-decoration:underline;
+}
+
+.enlace:hover{
+    cursor:pointer;
 }

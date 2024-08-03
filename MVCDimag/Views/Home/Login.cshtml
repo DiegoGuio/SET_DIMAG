@@ -1,0 +1,55 @@
+﻿@{
+    ViewData["Title"] = "Login Dimag";
+}
+
+<div class="d-flex justify-content-center">
+    <h1>DIMAG</h1>
+</div>
+<div class="btn-group" role="group" aria-label="Basic mixed styles example">
+    <button type="button" class="btn btn-danger">Conozcanos</button>
+    <button type="button" class="btn btn-warning">Contactenos</button>
+    <button type="button" class="btn btn-success">Catálogo</button>
+</div>
+<div>
+    <div class="row">
+        <div class="col-6 d-flex justify-content-center align-items-center">
+            <div class="d-flex justify-content-center align-items-center">
+                <img src="/Images/Modelos.png" style="height:470px"/>
+            </div>
+        </div>
+        <div class="col-6 d-flex justify-content-center align-items-center">
+            <div class="d-flex justify-content-center align-items-center">
+                <form class="bg-white p-5 rounded">
+                    <div class="mb-3">
+                        <label for="nombreUsuario" class="form-label">Nombre de usuario: (*)</label>
+                        <input type="text" class="form-control" id="nombreUsuario" aria-describedby="emailHelp">
+                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Password: (*)</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="terminos&Condiciones">
+                        <label class="form-check-label enlace" for="terminos&Condiciones">Acepto terminos & condiciones</label>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+                    </div>
+                    <div class="text-center p-3">
+                        <span class="enlace">¿Olvidaste tu nombre de usuario?</span>
+                    </div>
+                    <div class="text-center p-3">
+                        <span class="enlace">¿Olvidaste tu contraseña?</span>
+                    </div>
+                    <div class="text-center">
+                        <button type="button" class="btn btn-success">Registrarse</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
