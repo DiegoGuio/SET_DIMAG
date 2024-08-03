@@ -3,17 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35122.118
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiDIMAG", "WebApiDIMAG.csproj", "{1D3012D5-C450-4ADB-8B58-AE46094B7F9A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApiDIMAG", "WebApiDIMAG.csproj", "{1D3012D5-C450-4ADB-8B58-AE46094B7F9A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01. WebApiDimag", "01. WebApiDimag", "{C4E0D897-C72E-4A90-9D93-CA71A9D6FCB6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02. LogicaNegocioDimag", "02. LogicaNegocioDimag", "{6A88B91E-AD3F-4541-905C-6DEE2D383863}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogicaNegocioDimag", "..\LogicaNegocioDimag\LogicaNegocioDimag.csproj", "{3D89179B-D638-4F2A-963C-26328647D7FC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogicaNegocioDimag", "..\LogicaNegocioDimag\LogicaNegocioDimag.csproj", "{3D89179B-D638-4F2A-963C-26328647D7FC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03. AccesoDatosDimag", "03. AccesoDatosDimag", "{F3C4D49C-10FD-42D9-8D3B-32ECA416D156}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccesoDatosDimag", "..\AccesoDatosDimag\AccesoDatosDimag.csproj", "{687C8577-EB2A-42C4-8DE6-DDA8BBD057BC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AccesoDatosDimag", "..\AccesoDatosDimag\AccesoDatosDimag.csproj", "{687C8577-EB2A-42C4-8DE6-DDA8BBD057BC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04. MVCDimag", "04. MVCDimag", "{6642490C-B235-4370-A79E-5525BEDFDE9A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCDimag", "..\MVCDimag\MVCDimag.csproj", "{BFDA33D6-6E35-4736-8835-C318805714C5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,10 @@ Global
 		{687C8577-EB2A-42C4-8DE6-DDA8BBD057BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{687C8577-EB2A-42C4-8DE6-DDA8BBD057BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{687C8577-EB2A-42C4-8DE6-DDA8BBD057BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFDA33D6-6E35-4736-8835-C318805714C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFDA33D6-6E35-4736-8835-C318805714C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFDA33D6-6E35-4736-8835-C318805714C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFDA33D6-6E35-4736-8835-C318805714C5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -41,6 +49,7 @@ Global
 		{1D3012D5-C450-4ADB-8B58-AE46094B7F9A} = {C4E0D897-C72E-4A90-9D93-CA71A9D6FCB6}
 		{3D89179B-D638-4F2A-963C-26328647D7FC} = {6A88B91E-AD3F-4541-905C-6DEE2D383863}
 		{687C8577-EB2A-42C4-8DE6-DDA8BBD057BC} = {F3C4D49C-10FD-42D9-8D3B-32ECA416D156}
+		{BFDA33D6-6E35-4736-8835-C318805714C5} = {6642490C-B235-4370-A79E-5525BEDFDE9A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {693F58A2-454E-46E2-A360-D941B85DBE23}

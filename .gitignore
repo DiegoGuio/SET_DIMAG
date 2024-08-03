@@ -49,4 +49,5 @@ appsettings.json
 
 # Carpetas de salida de compilación en otros proyectos
 /WebApiDIMAG/bin/
+/WebApiDIMAG/obj/
 
