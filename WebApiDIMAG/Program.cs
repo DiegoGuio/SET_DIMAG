@@ -15,18 +15,36 @@ builder.Services.AddDbContext<DimagDBContext>(
 
 DimagDBContext.ConnectionString = connectionString;
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowSpecificOrigin",
+        builder => builder.WithOrigins("https://localhost:44381")
+                          .AllowAnyMethod()
+                          .AllowAnyHeader());
+});
+
 builder.Services.AddControllers();
+builder.Services.AddHttpClient();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 //LogicaNegocioDimag/BL
 builder.Services.AddScoped<UsuariosBL>();
+builder.Services.AddScoped<GeografiaBL>();
 
 //AccesoDatosDimag/Queries
 builder.Services.AddScoped<UsuariosQueries>();
+builder.Services.AddScoped<GeografiaQueries>();
 
 var app = builder.Build();
+
+app.UseRouting();
+
+app.UseCors("AllowSpecificOrigins");
+
+app.UseExceptionHandler("/Home/Error");
+app.UseHsts();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

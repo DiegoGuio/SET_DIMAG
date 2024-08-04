@@ -12,7 +12,11 @@ namespace LogicaNegocioDimag.MappingProfle
     public class MappingProfile : Profile 
     {
         public MappingProfile() 
-        {
+        {    
+            CreateMap<CiudadOMunicipio, CiudadOMunicipioDto>();
+            CreateMap<CiudadOMunicipioDto, CiudadOMunicipio>();
+            CreateMap<Departamento, DepartamentoDto>();
+            CreateMap<DepartamentoDto, Departamento>();
             CreateMap<Usuario, UsuarioDto>();
             CreateMap<UsuarioDto, Usuario>();
         }

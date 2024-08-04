@@ -3,12 +3,12 @@
 }
 
 <div class="d-flex justify-content-center">
-    <h1>DIMAG</h1>
+    <h1 class="text-blue">DIMAG</h1>
 </div>
 <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-    <button type="button" class="btn btn-danger">Conozcanos</button>
-    <button type="button" class="btn btn-warning">Contactenos</button>
-    <button type="button" class="btn btn-success">Catálogo</button>
+    <button type="button" class="btn btn-secondary">Conozcanos</button>
+    <button type="button" class="btn btn-secondary">Contactenos</button>
+    <button type="button" class="btn btn-secondary">Catálogo</button>
 </div>
 <div>
     <div class="row">
@@ -42,10 +42,85 @@
                     <div class="text-center p-3">
                         <span class="enlace">¿Olvidaste tu contraseña?</span>
                     </div>
-                    <div class="text-center">
-                        <button type="button" class="btn btn-success">Registrarse</button>
-                    </div>
+                    <div class="text-center p-3">
+                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#formularioRegistroUsuario">
+                            Registrarse
+                        </button>
+                    </div>    
                 </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Modal de registro-->
+<div class="modal fade" id="formularioRegistroUsuario" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header border-bottom-0">
+                <h5 class="modal-title" id="staticBackdropLabel">Realiza el registro de tus datos personales</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-6">
+                        <label for="primerNombre" class="form-label mb-0">Primer nombre: (*)</label>
+                        <input type="text" class="form-control" id="primerNombre" aria-describedby="primerNombreHelp">
+                        <span id="errorPrimerNombre" class="text-danger fw-bold font-size-small d-none">Ingrese su primer nombre</span>
+                    </div>
+                    <div class="col-6">
+                        <label for="segundoNombre" class="form-label mb-0">Segundo nombre:</label>
+                        <input type="text" class="form-control" id="segundoNombre" aria-describedby="segundoNombreHelp">
+                    </div>
+                    <div class="col-6">
+                        <label for="primerApellido" class="form-label mb-0">Primer apellido: (*)</label>
+                        <input type="text" class="form-control" id="primerApellido" aria-describedby="primerApellidoHelp">
+                        <span id="errorPrimerApellido" class="text-danger fw-bold font-size-small d-none">Ingrese su primer apellido</span>
+                    </div>
+                    <div class="col-6">
+                        <label for="segundoApellido" class="form-label mb-0">Segundo apellido:</label>
+                        <input type="text" class="form-control" id="segundoApellido" aria-describedby="segundoApellidoHelp">
+                    </div>
+                    <div class="col-6">
+                        <label for="departamentos" class="form-label mb-0">Departamento: (*)</label>
+                        <select class="form-select" id="departamentos" aria-label="Listado de departamentos por país">
+                            <option selected>Selecciones un departamento</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                        <span id="errorDepartamento" class="text-danger fw-bold font-size-small d-none">Selecciones un departamento</span>
+                    </div>
+                    <div class="col-6">
+                        <label for="ciudadesOMunicipios" class="form-label mb-0">Ciudad/Municipio: (*)</label>
+                        <select class="form-select" id="ciudadesOMunicipios" aria-label="Listado de ciudades o municipios por departamento"></select>
+                        <span id="errorDiudadOMunicipio" class="text-danger fw-bold font-size-small d-none">Selecciones un municipio o ciudad</span>
+                    </div>
+                    <div class="col-6">
+                        <label for="email" class="form-label mb-0">Email: (*)</label>
+                        <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+                        <span id="errorEmail" class="text-danger fw-bold font-size-small d-none">Ingrese su correo electrónico</span>
+                    </div>
+                    <div class="col-6">
+                        <label for="celular" class="form-label mb-0">celular: (*)</label>
+                        <input type="text" class="form-control" id="celular" aria-describedby="celularHelp">
+                        <span id="errorCelular" class="text-danger fw-bold font-size-small d-none">Ingrese su número de célular</span>
+                    </div>
+                    <div class="col-6">
+                        <label for="nombreUsuarioRegistro" class="form-label mb-0">Nombre de usuario: (*)</label>
+                        <input type="text" class="form-control" id="nombreUsuarioRegistro" aria-describedby="nombreUsuarioRegistroHelp">
+                        <span id="errorNombreUsuario" class="text-danger fw-bold font-size-small d-none">Ingrese un nombre de usuario</span>
+                    </div>
+                    <div class="col-6">
+                        <label for="password" class="form-label mb-0">Password: (*)</label>
+                        <input type="password" class="form-control" id="password" aria-describedby="passwordHelp">
+                        <span id="errorPassword" class="text-danger fw-bold font-size-small d-none">Cree una contraseña</span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer justify-content-center border-top-0">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cancelar</button>
+                <button id="registrarUsuario" type="button" class="btn btn-success">Registrar</button>
             </div>
         </div>
     </div>

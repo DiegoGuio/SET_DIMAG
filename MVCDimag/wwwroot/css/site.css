@@ -19,11 +19,11 @@ html {
 
 body {
     margin-bottom: 60px;
-    background-color: whitesmoke;
+    background-color: #E3F2FD;
 }
 
 .bg-blue {
-    background-color: blue;
+    background-color: #1A237E;
 }
 
 #footer {
@@ -42,4 +42,12 @@ body {
 
 .enlace:hover{
     cursor:pointer;
+}
+
+.text-blue {
+    color: #1A237E;
+}
+
+.font-size-small{
+    font-size:x-small;
 }
