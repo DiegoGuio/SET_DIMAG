@@ -109,11 +109,11 @@ namespace AccesoDatosDimag.Queries
                                 data.ContornoCadera <= mptg.ContornoMaximoCadera &&
                                 data.LongitudHombro >= mptg.LongitudMinimaHombro &&
                                 data.LongitudHombro <= mptg.LongitudMaximaHombro
-                             select mptg.Talla).FirstOrDefault();
+                             select mptg).ToList();
 
                 if (talla != null) 
                 {
-                    data.TallaSETDimag = talla;
+                    data.TallaSETDimag = talla[0].Talla;
                     _context.RegistrosMedidasCorporalesPorUsuario.Add(data);
                     _context.SaveChanges();
 
