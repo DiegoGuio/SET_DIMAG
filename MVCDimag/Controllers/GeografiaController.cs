@@ -40,5 +40,34 @@ namespace MVCDimag.Controllers
                 return Json(null);
             }
         }
+
+        [HttpGet]
+        public async Task<IActionResult> ObtenerCiudadesOMunicipiosPorDepartamento(int departamentoId)
+        {
+            var client = _httpClientFactory.CreateClient();
+
+            var url = "https://localhost:44315/ObtenerCiudadesOMunicipiosPorDepartamento?departamentoId=" + departamentoId;
+
+            try
+            {
+                var response = await client.GetAsync(url);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var datos = await response.Content.ReadFromJsonAsync<List<DepartamentoViewModel>>();
+                    return Json(datos);
+                }
+                else
+                {
+                    ModelState.AddModelError(string.Empty, "Error al obtener los datos del servicio.");
+                    return Json(null);
+                }
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError(string.Empty, $"Excepción: {ex.Message}");
+                return Json(null);
+            }
+        }
     }
 }

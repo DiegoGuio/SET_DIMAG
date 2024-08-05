@@ -13,22 +13,22 @@ namespace WebApiDIMAG.Controllers
             _bL = bL;
         }
 
-        [HttpPost("RegistrarOActualizarUsuario")]
-        public bool RegistrarOActualizarUsuario(UsuarioDto usuarioDto)
+        [HttpPost("RegistrarUsuario")]
+        public int RegistrarUsuario([FromBody] UsuarioDto usuarioDto)
         {
-            return _bL.RegistrarOActualizarUsuario(usuarioDto);
+            return _bL.RegistrarUsuario(usuarioDto);
         }
 
-        [HttpGet("ConsultarUsuarioPorDocumentoIdentidad")]
-        public UsuarioDto ConsultarUsuarioPorDocumentoIdentidad(int tipoDocumentoId, string numeroDocumento)
+        [HttpGet("ConsultarUsuarioPorNombreUsuario")]
+        public UsuarioDto ConsultarUsuarioPorNombreUsuario(string nombreUsuario)
         {
-            return _bL.ConsultarUsuarioPorDocumentoIdentidad(tipoDocumentoId, numeroDocumento);
+            return _bL.ConsultarUsuarioPorNombreUsuario(nombreUsuario);
         }
 
-        [HttpDelete("EliminarUsuarioPorDocumentoIdentidad")]
-        public bool EliminarUsuarioPorDocumentoIdentidad(int tipoDocumentoId, string numeroDocumento)
+        [HttpDelete("EliminarUsuarioPorNombreUsuario")]
+        public bool EliminarUsuarioPorNombreUsuario(string nombreUsuario)
         {
-            return _bL.EliminarUsuarioPorDocumentoIdentidad(tipoDocumentoId, numeroDocumento);
+            return _bL.EliminarUsuarioPorNombreUsuario(nombreUsuario);
         }
 
     }

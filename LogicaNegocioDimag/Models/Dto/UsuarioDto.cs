@@ -11,29 +11,25 @@ namespace LogicaNegocioDimag.Models.Dto
     public class UsuarioDto
     {
         public int Id { get; set; }
-                
+
         public string PrimerNombre { get; set; }
-                
+
         public string SegundoNombre { get; set; }
-                
+
         public string PrimerApellido { get; set; }
-                
+
         public string SegundoApellido { get; set; }
-                
-        public int TipoDocumentoId { get; set; }
-               
-        public string NumeroDocumento { get; set; }
-                
-        public int PaisId { get; set; }
-                
+
         public int DepartamentoId { get; set; }
-                
+
+        public int CiudadOMunicipioId { get; set; }
+
         public string Email { get; set; }
-               
+
         public string Celular { get; set; }
-                
+
         public string NombreUsuario { get; set; }
-                
+
         public string Password { get; set; }
         public UsuarioDto()
         {
@@ -41,7 +37,6 @@ namespace LogicaNegocioDimag.Models.Dto
             SegundoNombre = string.Empty;
             PrimerApellido = string.Empty;
             SegundoApellido = string.Empty;
-            NumeroDocumento = string.Empty;
             Email = string.Empty;
             Celular = string.Empty;
             NombreUsuario = string.Empty;

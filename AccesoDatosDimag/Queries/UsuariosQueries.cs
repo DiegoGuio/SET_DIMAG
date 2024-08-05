@@ -17,53 +17,42 @@ namespace AccesoDatosDimag.Queries
             _context = context;
         }
 
-        public bool RegistrarOActualizarUsuario(Usuario usuario)
+        public int RegistrarUsuario(Usuario usuario)
         {
             try
             {
                 var usuarioRegistrado = (from u in _context.Usuarios
-                                         where u.NumeroDocumento == usuario.NumeroDocumento
+                                         where u.PrimerNombre == usuario.PrimerNombre &&
+                                         u.PrimerApellido == usuario.PrimerApellido &&
+                                         u.DepartamentoId == usuario.DepartamentoId &&
+                                         u.CiudadOMunicipioId == usuario.CiudadOMunicipioId &&
+                                         u.Email == usuario.Email &&
+                                         u.Celular == usuario.Celular
                                          select u).FirstOrDefault();
 
                 if (usuarioRegistrado == null)
                 {
                     _context.Usuarios.Add(usuario);
+                    _context.SaveChanges();
+                    return 1; //"Usuario registrado con éxito";
                 }
                 else
                 {
-                    usuarioRegistrado.PrimerNombre = usuario.PrimerNombre;
-                    usuarioRegistrado.SegundoNombre = usuario.SegundoNombre;
-                    usuarioRegistrado.PrimerApellido = usuario.PrimerApellido;
-                    usuarioRegistrado.SegundoApellido = usuario.SegundoApellido;
-                    usuarioRegistrado.TipoDocumentoId = usuario.TipoDocumentoId;
-                    usuarioRegistrado.NumeroDocumento = usuario.NumeroDocumento;
-                    usuarioRegistrado.PaisId = usuario.PaisId;
-                    usuarioRegistrado.DepartamentoId = usuario.DepartamentoId;
-                    usuarioRegistrado.Email = usuario.Email;
-                    usuarioRegistrado.Celular = usuario.Celular;
-                    usuarioRegistrado.NombreUsuario = usuario.NombreUsuario;
-                    usuarioRegistrado.Password = usuario.Password;
-
-                    _context.Usuarios.Update(usuarioRegistrado);
-                }
-
-                _context.SaveChanges();
-
-                return true;
+                    return 2; //"El usuario ya se encuentra registrado";
+                }   
             }
             catch (Exception)
             {
-
-                return false;
+                return 3; //"Error de registro";
             }
         }
 
-        public Usuario ConsultarUsuarioPorDocumentoIdentidad(int tipoDocumentoId, string numeroDocumento)
+        public Usuario ConsultarUsuarioPorNombreUsuario(string nombreUsuario)
         {
             try
             {
                 var usuario = (from u in _context.Usuarios
-                               where u.TipoDocumentoId == tipoDocumentoId && u.NumeroDocumento == numeroDocumento
+                               where u.NombreUsuario == nombreUsuario
                                select u).FirstOrDefault();
 
                 return usuario;
@@ -76,12 +65,12 @@ namespace AccesoDatosDimag.Queries
             
         }
 
-        public bool EliminarUsuarioPorDocumentoIdentidad(int tipoDocumentoId, string numeroDocumento)
+        public bool EliminarUsuarioPorNombreUsuario(string nombreUsuario)
         {
             try
             {
                 var usuario = (from u in _context.Usuarios
-                               where u.TipoDocumentoId == tipoDocumentoId && u.NumeroDocumento == numeroDocumento
+                               where u.NombreUsuario == nombreUsuario
                                select u).FirstOrDefault();
 
                 if (usuario == null)

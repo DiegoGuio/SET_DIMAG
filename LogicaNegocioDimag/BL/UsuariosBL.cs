@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BCrypt.Net;
 
 namespace LogicaNegocioDimag.BL
 {
@@ -28,25 +29,32 @@ namespace LogicaNegocioDimag.BL
             _mapper = mapperConfig.CreateMapper();
         }
 
-        public bool RegistrarOActualizarUsuario(UsuarioDto usuarioDto)
+        public int RegistrarUsuario(UsuarioDto usuarioDto)
         {
+            usuarioDto.Password = EncriptarContraseña(usuarioDto.Password);
+
             var usuario = _mapper.Map<Usuario>(usuarioDto);
 
-            return _queries.RegistrarOActualizarUsuario(usuario);
+            return _queries.RegistrarUsuario(usuario);
         }
 
-        public UsuarioDto ConsultarUsuarioPorDocumentoIdentidad(int tipoDocumentoId, string numeroDocumento)
+        public string EncriptarContraseña(string contraseña)
         {
-            var usuario = _queries.ConsultarUsuarioPorDocumentoIdentidad(tipoDocumentoId, numeroDocumento);
+            return BCrypt.Net.BCrypt.HashPassword(contraseña);
+        }
+
+        public UsuarioDto ConsultarUsuarioPorNombreUsuario(string nombreUsuario)
+        {
+            var usuario = _queries.ConsultarUsuarioPorNombreUsuario(nombreUsuario);
 
             var usuarioDto = _mapper.Map<UsuarioDto>(usuario);
 
             return usuarioDto;
         }
 
-        public bool EliminarUsuarioPorDocumentoIdentidad(int tipoDocumentoId, string numeroDocumento)
+        public bool EliminarUsuarioPorNombreUsuario(string nombreUsuario)
         {
-            return _queries.EliminarUsuarioPorDocumentoIdentidad(tipoDocumentoId, numeroDocumento);
+            return _queries.EliminarUsuarioPorNombreUsuario(nombreUsuario);
         }
     }
 }

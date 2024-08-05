@@ -29,20 +29,12 @@ namespace AccesoDatosDimag.Models
         public string SegundoApellido { get; set; }
 
         [Required]
-        [ForeignKey("TipoDocumento")]
-        public int TipoDocumentoId { get; set; }
-
-        [Required]
-        [StringLength(15)]
-        public string NumeroDocumento { get; set; }
-
-        [Required]
-        [ForeignKey("Pais")]
-        public int PaisId { get; set; }
-
-        [Required]
         [ForeignKey("Departamento")]
         public int DepartamentoId { get; set; }
+
+        [Required]
+        [ForeignKey("CiudadOMunicipio")]
+        public int CiudadOMunicipioId { get; set; }
 
         [Required]
         [StringLength(100)]
@@ -57,7 +49,7 @@ namespace AccesoDatosDimag.Models
         public string NombreUsuario { get; set; }
 
         [Required]
-        [StringLength(15)]
+        [StringLength(60)]
         public string Password { get; set; }
         public Usuario() 
         {
@@ -65,7 +57,6 @@ namespace AccesoDatosDimag.Models
             SegundoNombre = string.Empty;
             PrimerApellido = string.Empty;
             SegundoApellido = string.Empty;
-            NumeroDocumento = string.Empty;
             Email = string.Empty;
             Celular = string.Empty;
             NombreUsuario = string.Empty;

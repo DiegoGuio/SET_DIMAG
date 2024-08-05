@@ -2,6 +2,7 @@
     ViewData["Title"] = "Login Dimag";
 }
 
+
 <div class="d-flex justify-content-center">
     <h1 class="text-blue">DIMAG</h1>
 </div>
@@ -83,12 +84,7 @@
                     </div>
                     <div class="col-6">
                         <label for="departamentos" class="form-label mb-0">Departamento: (*)</label>
-                        <select class="form-select" id="departamentos" aria-label="Listado de departamentos por país">
-                            <option selected>Selecciones un departamento</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                        </select>
+                        <select class="form-select" id="departamentos" aria-label="Listado de departamentos por país" onchange="ObtenerCiudadesOMunicipiosPorDepartamento(this.id)"></select>
                         <span id="errorDepartamento" class="text-danger fw-bold font-size-small d-none">Selecciones un departamento</span>
                     </div>
                     <div class="col-6">
@@ -109,7 +105,7 @@
                     <div class="col-6">
                         <label for="nombreUsuarioRegistro" class="form-label mb-0">Nombre de usuario: (*)</label>
                         <input type="text" class="form-control" id="nombreUsuarioRegistro" aria-describedby="nombreUsuarioRegistroHelp">
-                        <span id="errorNombreUsuario" class="text-danger fw-bold font-size-small d-none">Ingrese un nombre de usuario</span>
+                        <span id="errorNombreUsuarioRegistro" class="text-danger fw-bold font-size-small d-none">Ingrese un nombre de usuario</span>
                     </div>
                     <div class="col-6">
                         <label for="password" class="form-label mb-0">Password: (*)</label>
@@ -125,6 +121,7 @@
         </div>
     </div>
 </div>
+
 
 
 

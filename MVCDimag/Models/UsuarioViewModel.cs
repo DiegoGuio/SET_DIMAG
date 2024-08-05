@@ -12,8 +12,6 @@
 
         public string SegundoApellido { get; set; }    
 
-        public int PaisId { get; set; }
-
         public int DepartamentoId { get; set; }
 
         public int CiudadOMunicipioId { get; set; }
