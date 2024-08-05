@@ -89,5 +89,45 @@ namespace AccesoDatosDimag.Queries
                 return false;
             }
         }
+
+        public List<Genero> ObtenerGeneros()
+        {
+            return _context.Generos.ToList();
+        }
+
+        public RegistroMedidasCorporalesPorUsuario RegistroMedidasCorporalesPorUsuario(RegistroMedidasCorporalesPorUsuario data)
+        {
+            try
+            {
+                var talla = (from mptg in _context.MedidasPorTallaYGenero
+                             where mptg.GeneroId == data.GeneroId &&
+                                data.ContornoPecho >= mptg.ContornoMinimoPecho &&
+                                data.ContornoPecho <= mptg.ContornoMaximoPecho &&
+                                data.ContornoCintura >= mptg.ContornoMinimoCintura &&
+                                data.ContornoCintura <= mptg.ContornoMaximoCintura &&
+                                data.ContornoCadera >= mptg.ContornoMinimoCadera &&
+                                data.ContornoCadera <= mptg.ContornoMaximoCadera &&
+                                data.LongitudHombro >= mptg.LongitudMinimaHombro &&
+                                data.LongitudHombro <= mptg.LongitudMaximaHombro
+                             select mptg.Talla).FirstOrDefault();
+
+                if (talla != null) 
+                {
+                    data.TallaSETDimag = talla;
+                    _context.RegistrosMedidasCorporalesPorUsuario.Add(data);
+                    _context.SaveChanges();
+
+                    return data;
+                }
+                else {
+                    return new RegistroMedidasCorporalesPorUsuario();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+           
+        }
     }
 }

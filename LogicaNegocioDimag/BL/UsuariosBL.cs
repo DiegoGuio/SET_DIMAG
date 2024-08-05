@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BCrypt.Net;
+using Microsoft.EntityFrameworkCore;
 
 namespace LogicaNegocioDimag.BL
 {
@@ -55,6 +56,24 @@ namespace LogicaNegocioDimag.BL
         public bool EliminarUsuarioPorNombreUsuario(string nombreUsuario)
         {
             return _queries.EliminarUsuarioPorNombreUsuario(nombreUsuario);
+        }
+
+        public List<GeneroDto> ObtenerGeneros()
+        {
+            var generos = _queries.ObtenerGeneros();
+            var generosDto = _mapper.Map<List<GeneroDto>>(generos);
+
+            return generosDto;
+        }
+
+        public RegistroMedidasCorporalesPorUsuarioDto RegistroMedidasCorporalesPorUsuario(RegistroMedidasCorporalesPorUsuarioDto data)
+        {
+            data.FechaRegistro =  DateTime.Now;
+            var registroMedidasCorporalesPorUsuario = _mapper.Map<RegistroMedidasCorporalesPorUsuario>(data);
+            var registroMedidas = _queries.RegistroMedidasCorporalesPorUsuario(registroMedidasCorporalesPorUsuario);
+            var registroMedidasCorporalesPorUsuarioDto = _mapper.Map<RegistroMedidasCorporalesPorUsuarioDto>(registroMedidas);
+
+            return registroMedidasCorporalesPorUsuarioDto;
         }
     }
 }

@@ -37,6 +37,9 @@ namespace AccesoDatosDimag.Context
 
         public DbSet<CiudadOMunicipio> CiudadesOMunicipios { get; set; }
         public DbSet<Departamento> Departamentos { get; set; }
+        public DbSet<Genero> Generos { get; set; }
+        public DbSet<MedidaPorTallaYGenero> MedidasPorTallaYGenero { get; set; }
+        public DbSet<RegistroMedidasCorporalesPorUsuario> RegistrosMedidasCorporalesPorUsuario { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
         
     }

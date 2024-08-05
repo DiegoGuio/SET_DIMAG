@@ -1,4 +1,5 @@
-﻿using LogicaNegocioDimag.BL;
+﻿using AccesoDatosDimag.Models;
+using LogicaNegocioDimag.BL;
 using LogicaNegocioDimag.Models.Dto;
 using Microsoft.AspNetCore.Mvc;
 
@@ -31,5 +32,16 @@ namespace WebApiDIMAG.Controllers
             return _bL.EliminarUsuarioPorNombreUsuario(nombreUsuario);
         }
 
+        [HttpGet("ObtenerGeneros")]
+        public List<GeneroDto> ObtenerGeneros()
+        {
+            return _bL.ObtenerGeneros();
+        }
+
+        [HttpPost("RegistroMedidasCorporalesPorUsuario")]
+        public RegistroMedidasCorporalesPorUsuarioDto RegistroMedidasCorporalesPorUsuario(RegistroMedidasCorporalesPorUsuarioDto data)
+        {
+            return _bL.RegistroMedidasCorporalesPorUsuario(data);
+        }
     }
 }
