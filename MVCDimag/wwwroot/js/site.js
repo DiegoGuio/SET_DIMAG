@@ -152,8 +152,100 @@ function ObtenerCiudadesOMunicipiosPorDepartamento(selectId) {
         });
 }
 
+function ObtenerGeneros() {
+    fetch('/Usuarios/ObtenerGeneros')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Error al obtener los datos del servicio.');
+            }
+            return response.json();
+        })
+        .then(data => {
+            var generosSelect = $('#generos');
+            generosSelect.empty();
+            var optionSelected = $('<option></option>')
+            optionSelected.attr('value', 0);
+            optionSelected.prop('selected', true);
+            optionSelected.text("Selecciones un genero");
+            generosSelect.append(optionSelected);
+
+            data.forEach(function (genero) {
+                var option = $('<option></option>')
+                option.attr('value', genero.id);
+                option.text(genero.nombre);
+                generosSelect.append(option);
+            });
+
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+        });
+}
+
+async function RegistroMedidasCorporalesPorUsuario(url = '/Usuarios/RegistroMedidasCorporalesPorUsuario', data = {}) {
+    var contornoPecho = $('#contornoPecho').val();
+    if (contornoPecho === "") {
+        $('#errorContornoPecho').removeClass('d-none');
+    } else {
+        $('#errorContornoPecho').addClass('d-none');
+        var contornoCintura = $('#contornoCintura').val();
+        if (contornoCintura === "") {
+            $('#errorContornoCintura').removeClass('d-none');
+        } else {
+            $('#errorContornoCintura').addClass('d-none');
+            var contornoCadera = $('#contornoCadera').val();
+            if (contornoCadera === "") {
+                $('#errorContornoCadera').removeClass('d-none');
+            } else {
+                $('#errorContornoCadera').addClass('d-none');
+                var longitudHombro = $('#longitudHombro').val();
+                if (longitudHombro === "") {
+                    $('#errorLongitudHombro').removeClass('d-none');
+                } else {
+                    $('#errorLongitudHombro').addClass('d-none');
+                    var generoId = $('#generos option:selected').val();
+                    if (generoId == 0) {
+                        $('#errorGenero').removeClass('d-none');
+                    } else {
+                        $('#errorGenero').addClass('d-none');
+
+                        var userData = {
+                            usuarioId: 1,
+                            generoId: generoId,
+                            contornoPecho: contornoPecho,
+                            contornoCintura: contornoCintura,
+                            contornoCadera: contornoCadera,
+                            longitudHombro: longitudHombro
+                        };
+
+                        try {
+                            let response = await fetch(url, {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify(userData)
+                            });
+
+                            if (response.ok) {
+                                let result = await response.json();
+                                console.log('Respuesta del servidor:', result);
+                            } else {
+                                console.error('Error al registrar o actualizar el usuario:', response.statusText);
+                            }
+                        } catch (error) {
+                            console.error('Error en la solicitud:', error);
+                        }
+                    }
+                }  
+            } 
+        }
+    } 
+}
+
 $(document).ready(function () {
     ObtenerDepartamentos();
+    ObtenerGeneros();
     $('#registrarUsuario').click(async function () {
         try {
             const data = await RegistrarUsuario();

@@ -1,0 +1,57 @@
+﻿@{
+    ViewData["Title"] = "Dimag";
+}
+
+<div class="d-flex justify-content-center p-5">
+    <h1 class="text-blue">DIMAG</h1>
+</div>
+<div class="btn-group" role="group" aria-label="Basic mixed styles example">
+    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#formularioSET">SET</button>
+    <button type="button" class="btn btn-secondary">Hombres</button>
+    <button type="button" class="btn btn-secondary">Mujeres</button>
+</div>
+
+<!--Modal SET-->
+<div class="modal fade" id="formularioSET" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header border-bottom-0">
+                <h5 class="modal-title" id="staticBackdropLabel">Ingresa tus medidas corporales</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-6">
+                        <label for="contornoPecho" class="form-label mb-0">Contorno del pecho: (*)</label>
+                        <input type="number" class="form-control" id="contornoPecho" aria-describedby="contornoPechoHelp" placeholder="Dato en cm">
+                        <span id="errorContornoPecho" class="text-danger fw-bold font-size-small d-none">Ingrese medida corporal</span>
+                    </div>
+                    <div class="col-6">
+                        <label for="contornoCintura" class="form-label mb-0">Contorno de la cintura: (*)</label>
+                        <input type="text" class="form-control" id="contornoCintura" aria-describedby="contornoCinturaHelp" placeholder="Dato en cm">
+                        <span id="errorContornoCintura" class="text-danger fw-bold font-size-small d-none">Ingrese medida corporal</span>
+                    </div>
+                    <div class="col-6">
+                        <label for="contornoCadera" class="form-label mb-0">Contorno de la cadera: (*)</label>
+                        <input type="text" class="form-control" id="contornoCadera" aria-describedby="contornoCaderaHelp" placeholder="Dato en cm">
+                        <span id="errorContornoCadera" class="text-danger fw-bold font-size-small d-none">Ingrese medida corporal</span>
+                    </div>
+                    <div class="col-6">
+                        <label for="longitudHombro" class="form-label mb-0">Longitud del hombro: (*)</label>
+                        <input type="text" class="form-control" id="longitudHombro" aria-describedby="longitudHombroHelp" placeholder="Dato en cm">
+                        <span id="errorLongitudHombro" class="text-danger fw-bold font-size-small d-none">Ingrese medida corporal</span>
+                    </div>
+                    <div class="col-6">
+                        <label for="generos" class="form-label mb-0">Selecciones su genero: (*)</label>
+                        <select class="form-select" id="generos" aria-label="Listado de generos"></select>
+                        <span id="errorGenero" class="text-danger fw-bold font-size-small d-none">Selecciones un genero</span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer justify-content-center border-top-0">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cancelar</button>
+                <button id="registrarMedidasCorporales" type="button" class="btn btn-success" onclick="RegistroMedidasCorporalesPorUsuario()">Enviar</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -14,7 +14,7 @@ namespace LogicaNegocioDimag.Models.Dto
 
         public DateTime FechaRegistro { get; set; }
 
-        public int usuarioId { get; set; }
+        public int UsuarioId { get; set; }
 
         public int GeneroId { get; set; }
 

@@ -19,7 +19,7 @@ namespace AccesoDatosDimag.Models
         
         [Required]
         [ForeignKey("Usuario")]
-        public int usuarioId { get; set; }
+        public int UsuarioId { get; set; }
 
         [Required]
         [ForeignKey("Genero")]
