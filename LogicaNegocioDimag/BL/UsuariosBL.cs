@@ -75,5 +75,27 @@ namespace LogicaNegocioDimag.BL
 
             return registroMedidasCorporalesPorUsuarioDto;
         }
+
+        public int IniciarSesion(CredencialesUsuarioDto credenciales)
+        {
+            var credencialesUsuario = _mapper.Map<CredencialesUsuario>(credenciales);
+            var usuario = _queries.IniciarSesion(credencialesUsuario);
+            var verificarContraseña = VerificarContraseña(credenciales.Password, usuario.Password);
+
+            if (verificarContraseña)
+            {
+                return 1; //Datos correctos
+            }
+            else
+            {
+                return 2; //Datos incorrectos
+            }
+   
+        }
+
+        public bool VerificarContraseña(string contraseñaIngresada, string contraseñaAlmacenada)
+        {
+            return BCrypt.Net.BCrypt.Verify(contraseñaIngresada, contraseñaAlmacenada);
+        }
     }
 }

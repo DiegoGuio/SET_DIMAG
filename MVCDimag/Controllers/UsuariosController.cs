@@ -106,5 +106,36 @@ namespace MVCDimag.Controllers
                 return StatusCode(500, "Error en la solicitud: " + ex.Message);
             }
         }
+
+        [HttpPost]
+        public async Task<IActionResult> IniciarSesion([FromBody] CredencialesUsuarioViewModel credenciales)
+        {
+            var httpClient = _httpClientFactory.CreateClient();
+
+            var jsonContent = JsonConvert.SerializeObject(credenciales);
+            var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
+
+            try
+            {
+                // Enviar la solicitud POST
+                var response = await httpClient.PostAsync("https://localhost:44315/IniciarSesion", content);
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    // Manejar errores de la solicitud
+                    var errorMessage = await response.Content.ReadAsStringAsync();
+                    return StatusCode((int)response.StatusCode, errorMessage);
+                }
+
+                var result = await response.Content.ReadAsStringAsync();
+                // Manejar la respuesta de la API si es necesario
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                // Manejar excepciones
+                return StatusCode(500, "Error en la solicitud: " + ex.Message);
+            }
+        }
     }
 }

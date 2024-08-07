@@ -15,6 +15,8 @@ namespace LogicaNegocioDimag.MappingProfle
         {    
             CreateMap<CiudadOMunicipio, CiudadOMunicipioDto>();
             CreateMap<CiudadOMunicipioDto, CiudadOMunicipio>();
+            CreateMap<CredencialesUsuario, CredencialesUsuarioDto>();
+            CreateMap<CredencialesUsuarioDto, CredencialesUsuario>();
             CreateMap<Departamento, DepartamentoDto>();
             CreateMap<DepartamentoDto, Departamento>();
             CreateMap<Genero, GeneroDto>();

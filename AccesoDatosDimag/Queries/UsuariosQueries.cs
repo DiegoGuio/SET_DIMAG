@@ -129,5 +129,28 @@ namespace AccesoDatosDimag.Queries
             }
            
         }
+
+        public Usuario IniciarSesion(CredencialesUsuario credenciales)
+        {
+            try
+            {
+                var usuario = (from u in _context.Usuarios
+                                where u.NombreUsuario == credenciales.NombreUsuario
+                                select u).FirstOrDefault();
+
+                if (usuario != null)
+                {
+                    return usuario;
+                } else
+                {
+                    return new Usuario();
+                }
+                
+            }
+            catch (Exception)
+            {
+                return new Usuario(); 
+            }
+        }
     }
 }

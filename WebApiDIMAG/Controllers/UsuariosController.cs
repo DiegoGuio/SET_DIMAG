@@ -58,9 +58,15 @@ namespace WebApiDIMAG.Controllers
         /// <param name="data">Son las medidas corporales ingresadas por el usuario</param>
         /// <returns>Retorna los datos ingresados por el usuario, agrgandole la talla determinada y la fecha de  registro. Esta información se almacena en la base  de datos</returns>
         [HttpPost("RegistroMedidasCorporalesPorUsuario")]
-        public RegistroMedidasCorporalesPorUsuarioDto RegistroMedidasCorporalesPorUsuario([FromBody]RegistroMedidasCorporalesPorUsuarioDto data)
+        public RegistroMedidasCorporalesPorUsuarioDto RegistroMedidasCorporalesPorUsuario([FromBody] RegistroMedidasCorporalesPorUsuarioDto data)
         {
             return _bL.RegistroMedidasCorporalesPorUsuario(data);
+        }
+
+        [HttpPost("IniciarSesion")]
+        public int IniciarSesion([FromBody]CredencialesUsuarioDto credenciales)
+        {
+            return _bL.IniciarSesion(credenciales);
         }
     }
 }

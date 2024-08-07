@@ -83,6 +83,54 @@
     }   
 }
 
+function IniciarSesion() {
+    var nombreUsuario = $('#nombreUsuario').val();
+    if (nombreUsuario === "") {
+        $('#errorNombreUsuario').removeClass('d-none');
+    } else {
+        $('#errorNombreUsuario').addClass('d-none');
+        var password = $('#password').val();
+        if (password == "") {
+            $('#errorPassword').removeClass('d-none');
+        } else {
+            $('#errorPassword').addClass('d-none');
+            var aceptarTerminosYCondiciones = $('#terminosCondiciones').prop('checked');
+            if (!aceptarTerminosYCondiciones) {
+                $('#errorTerminosYCondiciones').removeClass('d-none');
+            } else {
+                $('#errorTerminosYCondiciones').addClass('d-none');
+                var credenciales = {
+                    NombreUsuario: nombreUsuario,
+                    Password: password
+                }
+                fetch('/Usuarios/IniciarSesion', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(credenciales)
+                })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Error al obtener los datos del servicio.');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        if (data == 1) {
+                            console.log("Login exitoso");
+                            window.location.href = 'https://localhost:44381/Home/SesionIniciada';
+                        } else {
+                            console.log("Login fallido");
+                        }
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    });
+            }
+        }
+    }
+}
 function ObtenerDepartamentos() {
     fetch('/Geografia/ObtenerDepartamentos')
         .then(response => {
@@ -230,8 +278,10 @@ async function RegistroMedidasCorporalesPorUsuario(url = '/Usuarios/RegistroMedi
                             if (response.ok) {
                                 let result = await response.json();
                                 console.log('Respuesta del servidor:', result);
+                                cerrarModalMedidasCorporales();
                             } else {
                                 console.error('Error al registrar o actualizar el usuario:', response.statusText);
+                                cerrarModalMedidasCorporales();
                             }
                         } catch (error) {
                             console.error('Error en la solicitud:', error);
@@ -241,6 +291,17 @@ async function RegistroMedidasCorporalesPorUsuario(url = '/Usuarios/RegistroMedi
             } 
         }
     } 
+}
+
+function AceptarTerminosYCondiciones() {
+    $('#terminosCondiciones').prop('disabled', false);
+    $('#terminosCondiciones').prop('checked', true);
+}
+
+function cerrarModalMedidasCorporales() {
+    var $modalElement = document.getElementById('formularioSET');
+    var modalInstance = bootstrap.Modal.getInstance($modalElement);
+    modalInstance.hide();
 }
 
 $(document).ready(function () {

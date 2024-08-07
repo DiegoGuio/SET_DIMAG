@@ -24,18 +24,28 @@
                     <div class="mb-3">
                         <label for="nombreUsuario" class="form-label">Nombre de usuario: (*)</label>
                         <input type="text" class="form-control" id="nombreUsuario" aria-describedby="emailHelp">
-                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                        <span id="errorNombreUsuario" class="text-danger fw-bold font-size-small d-none">Usuario incorrecto</span>
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Password: (*)</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1">
+                        <label for="password" class="form-label">Password: (*)</label>
+                        <input type="password" class="form-control" id="password" aria-describedby="passwordHelp">
+                        <span id="errorPassword" class="text-danger fw-bold font-size-small d-none">Contraseña incorrecta</span>
                     </div>
-                    <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input" id="terminos&Condiciones">
-                        <label class="form-check-label enlace" for="terminos&Condiciones">Acepto terminos & condiciones</label>
+                    <div class="mb-3 d-flex flex-column">
+                        <div class="d-flex">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="terminosCondiciones" disabled>
+                            </div>
+                            <div>
+                                <label class="form-check-label enlace" data-bs-toggle="modal" data-bs-target="#modalTerminosCondiciones">Acepto terminos & condiciones</label>
+                            </div>
+                        </div>
+                        <div>
+                            <span id="errorTerminosYCondiciones" class="text-danger fw-bold font-size-small d-none">Acepte terminos y condiciones</span>
+                        </div>
                     </div>
                     <div class="text-center">
-                        <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+                        <button type="button" class="btn btn-primary" onclick="IniciarSesion()">Iniciar Sesión</button>
                     </div>
                     <div class="text-center p-3">
                         <span class="enlace">¿Olvidaste tu nombre de usuario?</span>
@@ -117,6 +127,62 @@
             <div class="modal-footer justify-content-center border-top-0">
                 <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cancelar</button>
                 <button id="registrarUsuario" type="button" class="btn btn-success">Registrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Modal términos y condiciones-->
+<div class="modal fade" id="modalTerminosCondiciones" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header border-bottom-0">
+                <h5 class="modal-title" id="staticBackdropLabel">Términos y Condiciones</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h4>¡Lee con atención!</h4>
+                <h4>Introducción</h4>
+                <p class="text-justify">Bienvenido a Dotaciones DIMAG. Estos términos y condiciones describen las reglas y regulaciones para el uso de los servicios ofrecidos por Dotaciones DIMAG, una empresa dedicada a la fabricación y venta de uniformes en material antifluido. Al realizar una compra en nuestro sitio web, usted acepta cumplir y estar sujeto a los siguientes términos y condiciones.</p>
+
+                <h4>1. Generalidades</h4>
+                <p class="text-justify">Dotaciones DIMAG se reserva el derecho de actualizar o modificar estos términos y condiciones en cualquier momento sin previo aviso. Es responsabilidad del cliente revisar regularmente los términos y condiciones.</p>
+
+                <h4>2. Productos</h4>
+                <p class="text-justify">Todos los uniformes fabricados y vendidos por Dotaciones DIMAG están hechos de material antifluido. Las descripciones y especificaciones de los productos están sujetas a cambios sin previo aviso.</p>
+
+                <h4>3. Sistema de Establecimiento de Tallas</h4>
+                <p class="text-justify">Las tallas de los uniformes se determinan mediante el Sistema de Establecimiento de Tallas, desarrollado por Dotaciones DIMAG. El sistema requiere que los usuarios ingresen sus medidas corporales para determinar la talla correcta. Es responsabilidad exclusiva del cliente proporcionar medidas corporales precisas. Dotaciones DIMAG no se hace responsable por problemas derivados de medidas incorrectamente ingresadas.</p>
+
+                <h4>4. Información del Cliente</h4>
+                <p class="text-justify">Los clientes deben proporcionar información precisa y completa en cuanto a medidas corporales, datos de ubicación y medios de pago. Dotaciones DIMAG no se hace responsable por errores en el procesamiento de pedidos debido a datos incorrectos proporcionados por el cliente.</p>
+
+                <h4>5. Pagos Electrónicos</h4>
+                <p class="text-justify">Los pagos deben realizarse a través de métodos de pago electrónicos disponibles en nuestro sitio web. Dotaciones DIMAG se reserva el derecho de verificar la validez de los pagos antes de procesar cualquier pedido.</p>
+
+                <h4>6. Envíos</h4>
+                <p class="text-justify">Los envíos se realizan a través de empresas de envíos a nivel nacional en Colombia. Dotaciones DIMAG no se hace responsable por retrasos o problemas en la entrega que sean atribuibles a las empresas de envíos.</p>
+
+                <h4>7. Devoluciones y Reembolsos</h4>
+                <p class="text-justify">No se aceptan devoluciones ni se realizan reembolsos por uniformes cuyo problema derive de medidas corporales incorrectamente ingresadas por el cliente. En caso de defectos de fabricación, el cliente debe notificar a Dotaciones DIMAG dentro de los 7 días posteriores a la recepción del producto.</p>
+
+                <h4>8. Responsabilidad del Cliente</h4>
+                <p class="text-justify">Es responsabilidad del cliente asegurarse de que toda la información proporcionada (medidas corporales, datos de ubicación y medios de pago) sea correcta. Cualquier problema que surja debido a datos incorrectos proporcionados por el cliente será responsabilidad exclusiva del cliente.</p>
+
+                <h4>9. Limitación de Responsabilidad</h4>
+                <p class="text-justify">Dotaciones DIMAG no será responsable por daños indirectos, incidentales o consecuentes que resulten del uso o la incapacidad de usar nuestros productos. Nuestra responsabilidad máxima se limitará al monto pagado por los productos.</p>
+
+                <h4>10. Ley Aplicable</h4>
+                <p class="text-justify">Estos términos y condiciones se regirán e interpretarán de acuerdo con las leyes de Colombia. Cualquier disputa que surja en relación con estos términos y condiciones estará sujeta a la jurisdicción exclusiva de los tribunales de Colombia.</p>
+
+                <h4>Contacto</h4>
+                <p class="text-justify">Para cualquier consulta o reclamo, por favor contacte a Dotaciones DIMAG a través de nuestros canales de atención al cliente.</p>
+
+                <p class="text-justify"><em>Última actualización: [2024-08-06]</em></p>
+            </div>
+            <div class="modal-footer justify-content-center border-top-0">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cancelar</button>
+                <button id="aceptarTerminosCondiciones" type="button" class="btn btn-success" data-bs-dismiss="modal" onclick="AceptarTerminosYCondiciones()">Aceptar</button>
             </div>
         </div>
     </div>
