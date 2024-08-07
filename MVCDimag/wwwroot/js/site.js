@@ -1,4 +1,5 @@
-﻿async function RegistrarUsuario(url = '/Usuarios/RegistrarUsuario', data = {}) {
+﻿
+async function RegistrarUsuario(url = '/Usuarios/RegistrarUsuario', data = {}) {
     
     var primerNombre = $('#primerNombre').val();
     if (primerNombre === "") {
@@ -37,11 +38,11 @@
                                 $('#errorNombreUsuarioRegistro').removeClass('d-none');
                             } else {
                                 $('#errorNombreUsuarioRegistro').addClass('d-none');
-                                var password = $('#password').val();
+                                var password = $('#passwordRegistro').val();
                                 if (password === "") {
-                                    $('#errorPassword').removeClass('d-none');
+                                    $('#errorPasswordRegistro').removeClass('d-none');
                                 } else {
-                                    $('#errorPassword').addClass('d-none');
+                                    $('#errorPasswordRegistro').addClass('d-none');
                                     var userData = {
                                         primerNombre: primerNombre,
                                         segundoNombre: segundoNombre,
@@ -67,11 +68,15 @@
                                         if (response.ok) {
                                             let result = await response.json();
                                             console.log('Respuesta del servidor:', result);
+                                            MostrarNotificacion(1);
+                                            CerraModalRegistroUsuario();
                                         } else {
                                             console.error('Error al registrar o actualizar el usuario:', response.statusText);
+                                            MostrarNotificacion(2);
                                         }
                                     } catch (error) {
                                         console.error('Error en la solicitud:', error);
+                                        MostrarNotificacion(2);
                                     }
                                 }
                             }
@@ -122,14 +127,20 @@ function IniciarSesion() {
                             window.location.href = 'https://localhost:44381/Home/SesionIniciada';
                         } else {
                             console.log("Login fallido");
+                            MostrarNotificacion(data);
                         }
                     })
                     .catch(error => {
                         console.log(error);
+                        MostrarNotificacion(3);
                     });
             }
         }
     }
+}
+
+function CerrarSesion() {
+    window.location.href = 'https://localhost:44381/Home/Login';
 }
 function ObtenerDepartamentos() {
     fetch('/Geografia/ObtenerDepartamentos')
@@ -258,7 +269,7 @@ async function RegistroMedidasCorporalesPorUsuario(url = '/Usuarios/RegistroMedi
                         $('#errorGenero').addClass('d-none');
 
                         var userData = {
-                            usuarioId: 1,
+                            usuarioId: 12,
                             generoId: generoId,
                             contornoPecho: contornoPecho,
                             contornoCintura: contornoCintura,
@@ -278,10 +289,11 @@ async function RegistroMedidasCorporalesPorUsuario(url = '/Usuarios/RegistroMedi
                             if (response.ok) {
                                 let result = await response.json();
                                 console.log('Respuesta del servidor:', result);
-                                cerrarModalMedidasCorporales();
+                                CerrarModalMedidasCorporales();
+                                CrearVetanaDeResultado(result);
                             } else {
                                 console.error('Error al registrar o actualizar el usuario:', response.statusText);
-                                cerrarModalMedidasCorporales();
+                                CerrarModalMedidasCorporales();
                             }
                         } catch (error) {
                             console.error('Error en la solicitud:', error);
@@ -298,10 +310,130 @@ function AceptarTerminosYCondiciones() {
     $('#terminosCondiciones').prop('checked', true);
 }
 
-function cerrarModalMedidasCorporales() {
+function CerrarModalMedidasCorporales() {
     var $modalElement = document.getElementById('formularioSET');
     var modalInstance = bootstrap.Modal.getInstance($modalElement);
     modalInstance.hide();
+}
+
+function CerraModalRegistroUsuario(){
+    var $modalElement = document.getElementById('formularioRegistroUsuario');
+    var modalInstance = bootstrap.Modal.getInstance($modalElement);
+    modalInstance.hide();
+}
+
+function MostrarNotificacion(notificacionId) {
+    // 1 Registro de usuario exitoso.
+    // 2 Registro de usuario fallido.
+    // 3 Inicio de sesión fallido.
+
+    var errorTitulo = $('<span></span>');
+    var mensage = $('<p></p>')
+    mensage.addClass('text-justify');
+    if (notificacionId > 0) {
+        errorTitulo.text('Exitoso');
+        errorTitulo.addClass('text-success fw-bold');
+        mensage.text('Registro de usuario exitoso.');
+        
+    } else if (notificacionId == 0 || notificacionId == -1) {
+        errorTitulo.text('Error');
+        errorTitulo.addClass('text-danger fw-bold');
+        mensage.text('Registro de usuario fallido.');
+    } else if (notificacionId == -2) {
+        errorTitulo.text('Error');
+        errorTitulo.addClass('text-danger fw-bold');
+        mensage.text('Inicio de sesión fallido.');
+    }   
+   
+    var contenedorHeader = $('<div></div>');
+    contenedorHeader.addClass('p-2 pb-0 border-bottom-1');
+    contenedorHeader.append(errorTitulo);
+    
+    var contenedorMensaje = $('<div></div>');
+    contenedorMensaje.addClass('p-2');
+    contenedorMensaje.append(mensage);
+
+    var contenedor = $('<div></div>');
+    contenedor.addClass('contenedor-notificaciones bg-white rounded');
+    contenedor.append(contenedorHeader);
+    contenedor.append(contenedorMensaje);
+    $('body').append(contenedor);
+
+    setTimeout(() => {
+        contenedor.addClass('active');
+    }, 100);
+
+    setTimeout(() => {
+        contenedor.remove();
+    }, 5000);
+}
+
+function CrearVetanaDeResultado(result) {
+
+    var labelContornoPecho = $('<span></span>');
+    labelContornoPecho.text('Contorno del pecho: ');
+    labelContornoPecho.addClass('fw-bold');
+
+    var contornoPecho = $('<span></span>');
+    contornoPecho.text(result.contornoPecho);
+
+    var contenedorDatoContornoPecho = $('<div></div>');
+    contenedorDatoContornoPecho.append(labelContornoPecho);
+    contenedorDatoContornoPecho.append(contornoPecho);
+
+    var labelContornoCintura = $('<span></span>');
+    labelContornoCintura.text('Contorno de la cintura: ');
+    labelContornoCintura.addClass('fw-bold');
+
+    var contornoCintura = $('<span></span>');
+    contornoCintura.text(result.contornoCintura);
+
+    var contenedorDatoContornoCintura = $('<div></div>');
+    contenedorDatoContornoCintura.append(labelContornoCintura);
+    contenedorDatoContornoCintura.append(contornoCintura);
+
+    var labelContornoCadera = $('<span></span>');
+    labelContornoCadera.text('Contorno de la cadera: ');
+    labelContornoCadera.addClass('fw-bold');
+
+    var contornoCadera = $('<span></span>');
+    contornoCadera.text(result.contornoCadera);
+
+    var contenedorDatoContornoCadera = $('<div></div>');
+    contenedorDatoContornoCadera.append(labelContornoCadera);
+    contenedorDatoContornoCadera.append(contornoCadera);
+
+    var labelLongitudHombro = $('<span></span>');
+    labelLongitudHombro.text('Longitud del hombro: ');
+    labelLongitudHombro.addClass('fw-bold');
+
+    var longitudHombro = $('<span></span>');
+    longitudHombro.text(result.longitudHombro);
+
+    var contenedorDatoLongitudHombro = $('<div></div>');
+    contenedorDatoLongitudHombro.append(labelLongitudHombro);
+    contenedorDatoLongitudHombro.append(longitudHombro);
+
+    var contenedorMedidasIngresadas = $('<div></div>');
+    contenedorMedidasIngresadas.addClass('d-flex flex-column col-6');
+    contenedorMedidasIngresadas.append(contenedorDatoContornoPecho);
+    contenedorMedidasIngresadas.append(contenedorDatoContornoCintura);
+    contenedorMedidasIngresadas.append(contenedorDatoContornoCadera);
+    contenedorMedidasIngresadas.append(contenedorDatoLongitudHombro);
+    
+    var tallaSETDimag = $('<span></span>');
+    tallaSETDimag.text(result.tallaSETDimag);
+
+    var contenedorTallaEstablecida = $('<div></div>');
+    contenedorTallaEstablecida.addClass('d-flex justify-content-center align-items-center p-0 col-6');
+    contenedorTallaEstablecida.append(tallaSETDimag);
+
+    var ventanaResultado = $('<div></div>');
+    ventanaResultado.addClass('d-flex p-2 rounded bg-white ventana-resultado row');
+    ventanaResultado.append(contenedorMedidasIngresadas);
+    ventanaResultado.append(contenedorTallaEstablecida);
+
+    $('body').append(ventanaResultado);
 }
 
 $(document).ready(function () {

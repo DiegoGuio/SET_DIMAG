@@ -88,14 +88,22 @@ namespace LogicaNegocioDimag.BL
             }
             else
             {
-                return 2; //Datos incorrectos
+                return -2; //Datos incorrectos
             }
    
         }
 
         public bool VerificarContraseña(string contraseñaIngresada, string contraseñaAlmacenada)
         {
-            return BCrypt.Net.BCrypt.Verify(contraseñaIngresada, contraseñaAlmacenada);
+            try
+            {
+                return BCrypt.Net.BCrypt.Verify(contraseñaIngresada, contraseñaAlmacenada);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            
         }
     }
 }

@@ -19,32 +19,32 @@
                 <h5 class="modal-title" id="staticBackdropLabel">Ingresa tus medidas corporales</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body" style="font-size:15px">
                 <div class="row">
                     <div class="col-6">
                         <label for="contornoPecho" class="form-label mb-0">Contorno del pecho: (*)</label>
                         <input type="number" class="form-control" id="contornoPecho" aria-describedby="contornoPechoHelp" placeholder="Dato en cm">
-                        <span id="errorContornoPecho" class="text-danger fw-bold font-size-small d-none">Ingrese medida corporal</span>
+                        <span id="errorContornoPecho" class="text-danger fw-bold font-size-x-small d-none">Ingrese medida corporal</span>
                     </div>
                     <div class="col-6">
                         <label for="contornoCintura" class="form-label mb-0">Contorno de la cintura: (*)</label>
                         <input type="text" class="form-control" id="contornoCintura" aria-describedby="contornoCinturaHelp" placeholder="Dato en cm">
-                        <span id="errorContornoCintura" class="text-danger fw-bold font-size-small d-none">Ingrese medida corporal</span>
+                        <span id="errorContornoCintura" class="text-danger fw-bold font-size-x-small d-none">Ingrese medida corporal</span>
                     </div>
                     <div class="col-6">
                         <label for="contornoCadera" class="form-label mb-0">Contorno de la cadera: (*)</label>
                         <input type="text" class="form-control" id="contornoCadera" aria-describedby="contornoCaderaHelp" placeholder="Dato en cm">
-                        <span id="errorContornoCadera" class="text-danger fw-bold font-size-small d-none">Ingrese medida corporal</span>
+                        <span id="errorContornoCadera" class="text-danger fw-bold font-size-x-small d-none">Ingrese medida corporal</span>
                     </div>
                     <div class="col-6">
-                        <label for="longitudHombro" class="form-label mb-0">Longitud del hombro: (*)</label>
+                        <label for="longitudHombro" class="form-label mb-0">Longitud Hombro a Hombro: (*)</label>
                         <input type="text" class="form-control" id="longitudHombro" aria-describedby="longitudHombroHelp" placeholder="Dato en cm">
-                        <span id="errorLongitudHombro" class="text-danger fw-bold font-size-small d-none">Ingrese medida corporal</span>
+                        <span id="errorLongitudHombro" class="text-danger fw-bold font-size-x-small d-none">Ingrese medida corporal</span>
                     </div>
                     <div class="col-6">
                         <label for="generos" class="form-label mb-0">Selecciones su genero: (*)</label>
                         <select class="form-select" id="generos" aria-label="Listado de generos"></select>
-                        <span id="errorGenero" class="text-danger fw-bold font-size-small d-none">Selecciones un genero</span>
+                        <span id="errorGenero" class="text-danger fw-bold font-size-x-small d-none">Selecciones un genero</span>
                     </div>
                 </div>
             </div>
@@ -53,5 +53,23 @@
                 <button id="registrarMedidasCorporales" type="button" class="btn btn-success" onclick="RegistroMedidasCorporalesPorUsuario()">Enviar</button>
             </div>
         </div>
+    </div>
+</div>
+
+<!--Contenedor, foto usuario, nombre usaurio e icono para cerrar sesión-->
+<div class="tarjeta-informacion-usuario p-2 d-flex">
+    <div class="d-flex flex-column justify-content-center align-items-center">
+        <div style="width:50px; height:50px; border-radius:100%" class="d-flex justify-content-center align-items-enter">
+            <img src="/Images/Logotipo-Dimag.png" />
+        </div>
+        <div class="line-height-05">
+            <span class="font-size-x-small"><a href="#">Editar foto</a></span>
+        </div>
+    </div>  
+    <div>
+        <span>DiegoGuio</span>
+    </div>
+    <div>
+        <img src="~/Images/box-arrow-right.svg" class="icono-cerrar-sesion" title="Cerrar sesión" onclick="CerrarSesion()"/>
     </div>
 </div>

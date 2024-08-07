@@ -34,16 +34,16 @@ namespace AccesoDatosDimag.Queries
                 {
                     _context.Usuarios.Add(usuario);
                     _context.SaveChanges();
-                    return 1; //"Usuario registrado con éxito";
+                    return usuario.Id; //"Usuario registrado con éxito";
                 }
                 else
                 {
-                    return 2; //"El usuario ya se encuentra registrado";
+                    return 0; //"El usuario ya se encuentra registrado";
                 }   
             }
             catch (Exception)
             {
-                return 3; //"Error de registro";
+                return -1; //"Error de registro";
             }
         }
 
@@ -141,6 +141,7 @@ namespace AccesoDatosDimag.Queries
                 if (usuario != null)
                 {
                     return usuario;
+
                 } else
                 {
                     return new Usuario();

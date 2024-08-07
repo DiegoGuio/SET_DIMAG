@@ -48,10 +48,46 @@ body {
     color: #1A237E;
 }
 
-.font-size-small{
+.font-size-x-small{
     font-size:x-small;
 }
 
 .text-justify{
     text-align:justify;
 }
+
+.tarjeta-informacion-usuario{
+    position:absolute;
+    top:0;
+    right:0;
+    column-gap:10px;
+}
+
+.line-height-05 {
+    line-height:0.5;
+}
+
+.icono-cerrar-sesion:hover{
+    cursor:pointer;
+    box-shadow:rgba(0,0,0,0.1) 10px 10px inset;
+}
+
+.contenedor-notificaciones {
+    position: fixed;
+    bottom: 10px;
+    right: -250px;
+    transition: right 1s ease;
+}
+
+.contenedor-notificaciones.active{
+    right:10px
+}
+
+.ventana-resultado {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width:480px;
+}
+

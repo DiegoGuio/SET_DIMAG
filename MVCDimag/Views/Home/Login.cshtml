@@ -24,12 +24,12 @@
                     <div class="mb-3">
                         <label for="nombreUsuario" class="form-label">Nombre de usuario: (*)</label>
                         <input type="text" class="form-control" id="nombreUsuario" aria-describedby="emailHelp">
-                        <span id="errorNombreUsuario" class="text-danger fw-bold font-size-small d-none">Usuario incorrecto</span>
+                        <span id="errorNombreUsuario" class="text-danger fw-bold font-size-x-small d-none">Usuario incorrecto</span>
                     </div>
                     <div class="mb-3">
                         <label for="password" class="form-label">Password: (*)</label>
                         <input type="password" class="form-control" id="password" aria-describedby="passwordHelp">
-                        <span id="errorPassword" class="text-danger fw-bold font-size-small d-none">Contraseña incorrecta</span>
+                        <span id="errorPassword" class="text-danger fw-bold font-size-x-small d-none">Contraseña incorrecta</span>
                     </div>
                     <div class="mb-3 d-flex flex-column">
                         <div class="d-flex">
@@ -41,7 +41,7 @@
                             </div>
                         </div>
                         <div>
-                            <span id="errorTerminosYCondiciones" class="text-danger fw-bold font-size-small d-none">Acepte terminos y condiciones</span>
+                            <span id="errorTerminosYCondiciones" class="text-danger fw-bold font-size-x-small d-none">Acepte terminos y condiciones</span>
                         </div>
                     </div>
                     <div class="text-center">
@@ -77,7 +77,7 @@
                     <div class="col-6">
                         <label for="primerNombre" class="form-label mb-0">Primer nombre: (*)</label>
                         <input type="text" class="form-control" id="primerNombre" aria-describedby="primerNombreHelp">
-                        <span id="errorPrimerNombre" class="text-danger fw-bold font-size-small d-none">Ingrese su primer nombre</span>
+                        <span id="errorPrimerNombre" class="text-danger fw-bold font-size-x-small d-none">Ingrese su primer nombre</span>
                     </div>
                     <div class="col-6">
                         <label for="segundoNombre" class="form-label mb-0">Segundo nombre:</label>
@@ -86,7 +86,7 @@
                     <div class="col-6">
                         <label for="primerApellido" class="form-label mb-0">Primer apellido: (*)</label>
                         <input type="text" class="form-control" id="primerApellido" aria-describedby="primerApellidoHelp">
-                        <span id="errorPrimerApellido" class="text-danger fw-bold font-size-small d-none">Ingrese su primer apellido</span>
+                        <span id="errorPrimerApellido" class="text-danger fw-bold font-size-x-small d-none">Ingrese su primer apellido</span>
                     </div>
                     <div class="col-6">
                         <label for="segundoApellido" class="form-label mb-0">Segundo apellido:</label>
@@ -95,32 +95,32 @@
                     <div class="col-6">
                         <label for="departamentos" class="form-label mb-0">Departamento: (*)</label>
                         <select class="form-select" id="departamentos" aria-label="Listado de departamentos por país" onchange="ObtenerCiudadesOMunicipiosPorDepartamento(this.id)"></select>
-                        <span id="errorDepartamento" class="text-danger fw-bold font-size-small d-none">Selecciones un departamento</span>
+                        <span id="errorDepartamento" class="text-danger fw-bold font-size-x-small d-none">Selecciones un departamento</span>
                     </div>
                     <div class="col-6">
                         <label for="ciudadesOMunicipios" class="form-label mb-0">Ciudad/Municipio: (*)</label>
                         <select class="form-select" id="ciudadesOMunicipios" aria-label="Listado de ciudades o municipios por departamento"></select>
-                        <span id="errorDiudadOMunicipio" class="text-danger fw-bold font-size-small d-none">Selecciones un municipio o ciudad</span>
+                        <span id="errorDiudadOMunicipio" class="text-danger fw-bold font-size-x-small d-none">Selecciones un municipio o ciudad</span>
                     </div>
                     <div class="col-6">
                         <label for="email" class="form-label mb-0">Email: (*)</label>
                         <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
-                        <span id="errorEmail" class="text-danger fw-bold font-size-small d-none">Ingrese su correo electrónico</span>
+                        <span id="errorEmail" class="text-danger fw-bold font-size-x-small d-none">Ingrese su correo electrónico</span>
                     </div>
                     <div class="col-6">
                         <label for="celular" class="form-label mb-0">celular: (*)</label>
                         <input type="text" class="form-control" id="celular" aria-describedby="celularHelp">
-                        <span id="errorCelular" class="text-danger fw-bold font-size-small d-none">Ingrese su número de célular</span>
+                        <span id="errorCelular" class="text-danger fw-bold font-size-x-small d-none">Ingrese su número de célular</span>
                     </div>
                     <div class="col-6">
                         <label for="nombreUsuarioRegistro" class="form-label mb-0">Nombre de usuario: (*)</label>
                         <input type="text" class="form-control" id="nombreUsuarioRegistro" aria-describedby="nombreUsuarioRegistroHelp">
-                        <span id="errorNombreUsuarioRegistro" class="text-danger fw-bold font-size-small d-none">Ingrese un nombre de usuario</span>
+                        <span id="errorNombreUsuarioRegistro" class="text-danger fw-bold font-size-x-small d-none">Ingrese un nombre de usuario</span>
                     </div>
                     <div class="col-6">
-                        <label for="password" class="form-label mb-0">Password: (*)</label>
-                        <input type="password" class="form-control" id="password" aria-describedby="passwordHelp">
-                        <span id="errorPassword" class="text-danger fw-bold font-size-small d-none">Cree una contraseña</span>
+                        <label for="passwordRegistro" class="form-label mb-0">Password: (*)</label>
+                        <input type="password" class="form-control" id="passwordRegistro" aria-describedby="passwordHelp">
+                        <span id="errorPasswordRegistro" class="text-danger fw-bold font-size-x-small d-none">Cree una contraseña</span>
                     </div>
                 </div>
             </div>
