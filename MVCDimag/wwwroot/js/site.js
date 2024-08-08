@@ -269,7 +269,7 @@ async function RegistroMedidasCorporalesPorUsuario(url = '/Usuarios/RegistroMedi
                         $('#errorGenero').addClass('d-none');
 
                         var userData = {
-                            usuarioId: 12,
+                            usuarioId: 13,
                             generoId: generoId,
                             contornoPecho: contornoPecho,
                             contornoCintura: contornoCintura,
