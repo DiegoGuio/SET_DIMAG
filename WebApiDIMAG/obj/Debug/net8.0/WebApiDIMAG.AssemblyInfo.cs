@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WebApiDIMAG")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5601bd6c8cecadd14eb1f5dafb91dc10f23c93de")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1dab64950fb0c88e62de4fa0e4cc4cf2e8ff801f")]
 [assembly: System.Reflection.AssemblyProductAttribute("WebApiDIMAG")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WebApiDIMAG")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

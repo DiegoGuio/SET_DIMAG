@@ -1,7 +1,14 @@
 import React from "react";
-
+import { useNavigate } from 'react-router-dom';
 
 function LoginForm(){
+  const navigate = useNavigate();
+
+  const handleLogin = () => {
+    // Aquí puedes agregar la lógica de autenticación si es necesario.
+    navigate('/home'); // Navega a la página de inicio después de iniciar sesión.
+  };
+
     return(
         <div className="d-flex justify-content-center align-items-center">
             <form className="bg-white p-5 rounded">
@@ -29,7 +36,7 @@ function LoginForm(){
                 </div>
               </div>
               <div className="text-center">
-                <button type="button" className="btn btn-primary">Iniciar Sesión</button>
+                <button type="button" className="btn btn-primary" onClick={handleLogin}>Iniciar Sesión</button>
               </div>
               <div className="text-center p-3">
                 <span className="enlace">¿Olvidaste tu nombre de usuario?</span>
